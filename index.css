@@ -1,0 +1,194 @@
+:root {
+  /* reset default from 16px to 10px for easier rem calculations */
+  font-size: 62.5%;
+
+  /* Variables: background colors... main, gen-btn, pwd-btn */
+  --blue-dark: #1f2937;
+  --green-dark: #10b981;
+  --blue-med: #273549;
+  --blue-med2: #2f3e53;
+
+  /* Variables: font colors...title & gen-btn, inner title, subtitle, pwd-btn */
+  --white: #fff;
+  --green-med: #4adf86;
+  --grey-med: #d5d4d8;
+  --green-lite: #55f991;
+}
+
+* {
+  /* Layout Resets */
+  margin: 0;
+  padding: 0;
+  border: none;
+  box-sizing: border-box;
+}
+
+body {
+  /* Default font */
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  color: var(--grey-med);
+}
+
+h1,
+h2 {
+  color: var(--white);
+  font-family: 'Karla', sans-serif;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.025em;
+}
+
+button {
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  border-radius: 5px;
+}
+
+/* 
+==== Overall Layout ====
+*/
+.container {
+  min-width: 490px;
+  max-width: 650px;
+  min-height: 400px;
+  background-color: var(--blue-dark);
+  margin: 0 auto;
+  padding: 5%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+/* 
+==== Intro title and subtitle ==== 
+*/
+.intro {
+  margin-bottom: 2em;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 0.4em;
+}
+
+.title-colorize {
+  color: var(--green-med);
+}
+
+/* 
+==== Custom Options ==== 
+*/
+.custom-options {
+  margin-bottom: 2em;
+  display: flex;
+}
+
+#options-title {
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  font-size: 2.2rem;
+  color: var(--green-dark);
+}
+
+#select-password-length {
+  width: 4rem;
+  margin: 0 0.2em 0.3em 0.3em;
+  padding-top: 0.1em;
+  padding-left: 0.1em;
+  font-size: 1.6rem;
+
+  /* add border so similar to checkboxes */
+  border: 1px solid white;
+  border-radius: 3px;
+  /* box-shadow: offset-x | offset-y | blur-radius | spread-radius | color */
+  box-shadow: 1px 1px 2px 1px white;
+}
+
+#add-special-chars,
+#add-digits {
+  margin: 0.3em 0.2em 0 1.7em;
+  transform: scale(1.5);
+  accent-color: var(--green-lite);
+}
+
+.options-label {
+  font-size: 1.6rem;
+}
+
+/* 
+==== Generate Passwords ==== 
+*/
+.generate-pwds {
+  width: 100%;
+  min-height: 100px;
+  display: grid;
+  grid-template-columns: repeat(2, 48%);
+  justify-content: space-between;
+  grid-template-rows: auto;
+  grid-template-areas:
+    'generatePasswordBtn .'
+    'centerLine centerLine'
+    'password1 password2'
+    'toCopy toCopy';
+}
+
+#generate-password-btn {
+  grid-area: generatePasswordBtn;
+  margin: 0 0.7em 2em 0.7em;
+  padding: 0.4em 0.8em;
+  background-color: var(--green-dark);
+  color: var(--white);
+  cursor: pointer;
+}
+
+#generate-password-btn:hover,
+#generate-password-btn:focus {
+  background-color: var(--green-med);
+  box-shadow: 1px 1px 2px 2px var(--green-med);
+  color: var(--white);
+  text-shadow: 1px 1px 2px 2px var(--grey-med);
+}
+
+#center-line {
+  grid-area: centerLine;
+  height: 1px;
+  margin-bottom: 1.5em;
+  border-top: 1px solid var(--blue-med2);
+}
+
+#password-choice-1 {
+  grid-area: password1;
+}
+
+#password-choice-2 {
+  grid-area: password2;
+}
+
+.password-choice {
+  min-height: 2.5em;
+  background-color: var(--blue-med);
+  border: 1px solid var(--blue-med2);
+  margin-bottom: 1em;
+  padding: 0.5em 1em;
+  color: var(--green-lite);
+  cursor: pointer;
+}
+
+.password-choice:hover,
+.password-choice:focus {
+  border: 1px solid var(--green-lite);
+}
+
+.copy-instructions {
+  grid-area: toCopy;
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.copy-instructions i {
+  font-size: 1.4rem;
+}

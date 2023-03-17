@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+    <title>Password Generator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Karla:wght@800&display=swap"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+
+  <body>
+    <main class="container">
+      <section class="intro">
+        <h1 class="title">Generate a <br /><span class="title-colorize">random password</span></h1>
+        <p class="subtitle">Never use an insecure password again.</p>
+      </section>
+
+      <section class="custom-options">
+        <h2 id="options-title">Password Options:</h2>
+        <div>
+          <input
+            type="number"
+            onChange="limiter(this)"
+            id="select-password-length"
+            name="length"
+            min="8"
+            max="20"
+            value="15"
+          />
+          <label for="select-password-length" class="options-label"> Length (total: 8 - 20)</label>
+          <br />
+          <input type="checkbox" id="add-special-chars" name="special-chars" checked />
+          <label for="add-special-chars" class="options-label"> Add special characters</label>
+          <br />
+          <input type="checkbox" id="add-digits" name="digits" checked />
+          <label for="add-digits" class="options-label"> Include some numbers</label>
+        </div>
+      </section>
+
+      <section class="generate-pwds">
+        <button id="generate-password-btn">Generate passwords</button>
+        <p id="center-line"></p>
+        <button id="password-choice-1" class="password-choice"></button>
+        <button id="password-choice-2" class="password-choice"></button>
+        <p class="copy-instructions">
+          Click on a password to copy it to your clipboard.<br />
+          <i>NOTE: copy-to-clipboard is blocked by scrim security.</i>
+        </p>
+      </section>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
